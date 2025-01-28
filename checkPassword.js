@@ -1,7 +1,7 @@
-//Note: This function cannot work in just a Javascript terminal, it is required to be added to an HTML/PHP document to use both the prompt and alert functions
+//Note: This function cannot work in just a Javascript terminal, it is required to be added to an HTML/PHP document to use both the prompt and alert functions (refer to example.html for implementation)
 
-function checkPassword(password,delayWindow){
-    //password should be the same password as part 1, delayWindow is the window you want to give your participants to return expressed in minutes
+function checkPassword(text,delayWindow){
+    //text should be the same "text" as part 1, delayWindow is the window you want to give your participants to return expressed in minutes
     //For example, a 10 hour delay period with a 2 hour window (participants can take the task anywhere from an 8-12 hour delay) would be 120
     var currentdate = new Date(); 
     const monthTable = [0,31,28,31,30,31,30,31,31,30,31,30];
@@ -18,7 +18,7 @@ function checkPassword(password,delayWindow){
     result = result.replace(/\s+/g, ''); //removes all spaces in input
             try
              {
-                    result = result.substring(password.length); //removes the text from the password
+                    result = result.substring(text.length); //removes the text from the password
                     result = parseInt(result); //parses the remaining numbers into an integer
              }
         catch(TypeError){} //sees if there is a casting error, usually occours if the participant mistypes the word part of the password
@@ -32,6 +32,6 @@ function checkPassword(password,delayWindow){
     else
         {
             alert('Please ensure that both your return condition and password are correct');
-            checkPassword("password",120); //restarts function
+            checkPassword("drawing",120); //restarts function. Must be identical to orginial call of checkPassword
         }
     }

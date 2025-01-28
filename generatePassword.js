@@ -1,4 +1,4 @@
-function generatePassword(password,delayTime){ 
+function generatePassword(text,delayTime){ 
     //first parameter is the "word" part of the password. Can be different per participant but ALL MUST BE SAME LENGTH. Second parameter is delay time expressed in minutes. For example, 10 hours is 600 (60 min*10)
     var currentdate = new Date(); //create new date object
     const monthTable = [0,31,28,31,30,31,30,31,31,30,31,30]; //no way in standard Javascript to get number of days elapsed since beginning of year, this is a workaround
@@ -10,7 +10,7 @@ function generatePassword(password,delayTime){
     numDays = numDays + currentdate.getUTCDate(); //add days of current month
     var currentMin = currentdate.getUTCMinutes() + (currentdate.getUTCHours()*60) + (numDays*1440) + parseInt(delayTime);
     //previous line calculated as current minutes since beginning of current hour + current minutes since midnight before current hour + current mins since Jan 1 before current day + delay time
-    return password + currentMin; //returns password string
+    return text + currentMin; //returns password string
 }
 
 console.log(generatePassword("drawing",123)); //test statement
